@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemonlistapp.Common.Common
 import com.example.pokemonlistapp.Common.ItemOffsetDecoration
 
-import com.example.pokemonlistapp.Retrofit.IPokemonList
+import com.example.pokemonlistapp.Retrofit.RetrofitPokeList
 import com.example.pokemonlistapp.Retrofit.RetrofitClient
 import com.example.pokemonlistapp.adaptateur.PokemonListAdaptateur
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,12 +20,12 @@ import io.reactivex.schedulers.Schedulers
 class PokemonList : Fragment() {
 
     internal var compositeDisposable = CompositeDisposable()
-    internal var iPokemonList:IPokemonList
+    internal var retrofitPokeList:RetrofitPokeList
     internal lateinit var recycler_view: RecyclerView
 
     init {
         val retrofit = RetrofitClient().instance
-        iPokemonList = retrofit.create(IPokemonList::class.java)
+        retrofitPokeList = retrofit.create(RetrofitPokeList::class.java)
 
     }
 
@@ -46,7 +46,7 @@ class PokemonList : Fragment() {
     }
 
     private fun fetchData() {
-        compositeDisposable.add(iPokemonList.listPokemon
+        compositeDisposable.add(retrofitPokeList.listPokemon
             .subscribeOn((Schedulers.io()))
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe{ pokemonDex ->

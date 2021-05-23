@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:titleTextColor="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
 
     <fragment
         android:name="com.example.pokemonlistapp.PokemonList"
