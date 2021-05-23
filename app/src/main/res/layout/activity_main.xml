@@ -5,12 +5,14 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".MainActivity">
 
 
     <fragment
         android:name="com.example.pokemonlistapp.PokemonList"
         android:id="@+id/list_pokemon_fragment"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
     />
